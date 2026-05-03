@@ -41,13 +41,26 @@
             this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot2 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot3 = new NationalInstruments.UI.ScatterPlot();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudFactorX = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudFactorY = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudFactorZ = new System.Windows.Forms.NumericUpDown();
+            this.btnApplyFactors = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorZ)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.chbZ);
             this.panel1.Controls.Add(this.chbY);
@@ -193,6 +206,83 @@
             this.scatterPlot3.XAxis = this.xAxis1;
             this.scatterPlot3.YAxis = this.yAxis1;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnApplyFactors);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.nudFactorZ);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.nudFactorY);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.nudFactorX);
+            this.groupBox1.Location = new System.Drawing.Point(18, 169);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(150, 193);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Angle correction factors";
+            // 
+            // nudFactorX
+            // 
+            this.nudFactorX.DecimalPlaces = 3;
+            this.nudFactorX.Location = new System.Drawing.Point(35, 38);
+            this.nudFactorX.Name = "nudFactorX";
+            this.nudFactorX.Size = new System.Drawing.Size(109, 20);
+            this.nudFactorX.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "X : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Y : ";
+            // 
+            // nudFactorY
+            // 
+            this.nudFactorY.DecimalPlaces = 3;
+            this.nudFactorY.Location = new System.Drawing.Point(35, 69);
+            this.nudFactorY.Name = "nudFactorY";
+            this.nudFactorY.Size = new System.Drawing.Size(109, 20);
+            this.nudFactorY.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Z : ";
+            // 
+            // nudFactorZ
+            // 
+            this.nudFactorZ.DecimalPlaces = 3;
+            this.nudFactorZ.Location = new System.Drawing.Point(35, 101);
+            this.nudFactorZ.Name = "nudFactorZ";
+            this.nudFactorZ.Size = new System.Drawing.Size(109, 20);
+            this.nudFactorZ.TabIndex = 4;
+            // 
+            // btnApplyFactors
+            // 
+            this.btnApplyFactors.Location = new System.Drawing.Point(9, 139);
+            this.btnApplyFactors.Name = "btnApplyFactors";
+            this.btnApplyFactors.Size = new System.Drawing.Size(135, 30);
+            this.btnApplyFactors.TabIndex = 6;
+            this.btnApplyFactors.Text = "Apply";
+            this.btnApplyFactors.UseVisualStyleBackColor = true;
+            this.btnApplyFactors.Click += new System.EventHandler(this.btnApplyFactors_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +296,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFactorZ)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +320,14 @@
         private System.Windows.Forms.CheckBox chbX;
         private NationalInstruments.UI.XYPointAnnotation xyPointAnnotation1;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nudFactorZ;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nudFactorY;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nudFactorX;
+        private System.Windows.Forms.Button btnApplyFactors;
     }
 }
 

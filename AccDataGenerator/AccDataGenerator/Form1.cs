@@ -312,5 +312,31 @@ namespace AccDataGenerator
 
             MessageBox.Show("File exported successfully.");
         }
+
+        private void btnApplyFactors_Click(object sender, EventArgs e)
+        {
+            double xFactor = (double)nudFactorX.Value;
+            double yFactor = (double)nudFactorY.Value;
+            double zFactor = (double)nudFactorZ.Value;
+
+            for (int i = 0; i < DataList.Count; i++)
+            {
+                double x = DataList[i].X;
+                double y = DataList[i].Y;
+                double z = DataList[i].Z;
+
+                DataList[i].X = x * xFactor;
+                DataList[i].Y = y * yFactor;
+                DataList[i].Z  = z * zFactor;
+
+                plotXArray[i] = x * xFactor;
+                plotYArray[i] = y * yFactor;
+                plotZArray[i] = z * zFactor;
+            }
+
+            scatterPlot1.PlotXY(plotTimeArray, plotXArray);
+            scatterPlot2.PlotXY(plotTimeArray, plotYArray);
+            scatterPlot3.PlotXY(plotTimeArray, plotZArray);
+        }
     }
 }
