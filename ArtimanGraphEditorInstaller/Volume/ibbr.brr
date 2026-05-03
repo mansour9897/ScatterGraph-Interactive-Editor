@@ -1,0 +1,102 @@
+National Instruments Installer Builder Build Configuration File.
+ToolVersion: 19.0.1.49152
+BuildStartedAt: 5/3/2026 9:13:47 PM
+----------------------------------------------------------------------
+Installer Information >>>
+Type: Installer
+Version: 0.1.2
+InstallerId: {2DDA7CBE-F58C-475E-8C15-E21FFB3ECB2F}
+----------------------------------------------------------------------
+Adding files >>>
+
+FileItem >>
+FileName: AccDataGenerator.exe
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {D1D0F52A-CB01-49F1-90EC-A8EAB8AEB642}
+ComponentKey: ACCDATAGENERATOR.EXE.2.AA1B02737D6C4987847FD3E9CB288752
+Checksum: no0jTG7X/iGOwUvs91D3Xg==
+
+FileItem >>
+FileName: AccDataGenerator.exe.config
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {B4F0FD46-2AED-4589-9217-B4FD98990977}
+ComponentKey: ACCDATAGENERATOR.EXE.CONFIG.3.AA1B02737D6C4987847FD3E9CB288752
+Checksum: FcjEuhqldMDAD9Rbuczhqw==
+
+FileItem >>
+FileName: AccDataGenerator.pdb
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {BFF7E53B-222E-4D38-9B89-C3902F533554}
+ComponentKey: ACCDATAGENERATOR.PDB.4.AA1B02737D6C4987847FD3E9CB288752
+Checksum: 9gtsk/xNkZttMJBNkLh3fg==
+
+FileItem >>
+FileName: NationalInstruments.Common.dll
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {5B43C933-9F0A-4DF2-9441-38244CC7AF3B}
+ComponentKey: NATIONALINSTRUMENTS.COMMON.DLL.5.AA1B02737D6C4987847FD3E9CB288752
+Checksum: 06LAxhDj6I91O4vQlSE+fg==
+
+FileItem >>
+FileName: NationalInstruments.Common.xml
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {1DF94024-39A7-4C18-8226-D2B254BE0624}
+ComponentKey: NATIONALINSTRUMENTS.COMMON.XML.6.AA1B02737D6C4987847FD3E9CB288752
+Checksum: 8fGQw5i/y93XzLuAwo7GlQ==
+
+FileItem >>
+FileName: NationalInstruments.UI.dll
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {D1939EE9-0E1C-4858-A31B-504B7AB07B62}
+ComponentKey: NATIONALINSTRUMENTS.UI.DLL.7.AA1B02737D6C4987847FD3E9CB288752
+Checksum: caDflRNZQK2eS4wQy2kLjw==
+
+FileItem >>
+FileName: NationalInstruments.UI.Styles3D.dll
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {DE2D5D0F-06CD-4011-A4C8-6D1094DA05D1}
+ComponentKey: NATIONALINSTRUMENTS.UI.STYLES3D.DLL.8.AA1B02737D6C4987847FD3E9CB288752
+Checksum: lvTc/NmwKUJH5XXnkNqFbA==
+
+FileItem >>
+FileName: NationalInstruments.UI.WindowsForms.dll
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {BB968FC0-89BD-490A-B927-F0E4C0419E48}
+ComponentKey: NATIONALINSTRUMENTS.UI.WINDOWSFORMS.D.9.AA1B02737D6C4987847FD3E9CB288752
+Checksum: WSS/Fgu6pg+u5VtFIvx24Q==
+
+FileItem >>
+FileName: NationalInstruments.UI.WindowsForms.xml
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {200F6D57-63E3-4D90-A42F-2768525BCB0F}
+ComponentKey: NATIONALINSTRUMENTS.UI.WINDOWSFORMS..10.AA1B02737D6C4987847FD3E9CB288752
+Checksum: muXevBOAeMn6+0ZjFHLlpw==
+
+FileItem >>
+FileName: NationalInstruments.UI.xml
+TargetPath: ProgramFiles64Folder\ArtimanGraphEditor
+TargetPathType: RelativeToDirectoryTableKey
+TargetPathRoot: ProgramFiles64Folder
+ComponentGuid: {6E6FC67B-1C10-4357-AF9A-26627A312D14}
+ComponentKey: NATIONALINSTRUMENTS.UI.XML.11.AA1B02737D6C4987847FD3E9CB288752
+Checksum: RRI0IWOT+8jY0MkhVXaaqg==
+----------------------------------------------------------------------
+Build completed at 5/3/2026 9:13:54 PM
