@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
             this.chbZ = new System.Windows.Forms.CheckBox();
             this.chbY = new System.Windows.Forms.CheckBox();
             this.chbX = new System.Windows.Forms.CheckBox();
@@ -40,7 +41,6 @@
             this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot2 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot3 = new NationalInstruments.UI.ScatterPlot();
-            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 601);
             this.panel1.TabIndex = 0;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(18, 41);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(150, 23);
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Text = "Export Data";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // chbZ
             // 
@@ -159,11 +169,17 @@
             // 
             this.scatterPlot1.LineColor = System.Drawing.Color.Red;
             this.scatterPlot1.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
+            this.scatterPlot1.PointColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.scatterPlot1.PointSize = new System.Drawing.Size(4, 4);
+            this.scatterPlot1.PointStyle = NationalInstruments.UI.PointStyle.EmptyCircle;
             this.scatterPlot1.XAxis = this.xAxis1;
             this.scatterPlot1.YAxis = this.yAxis1;
             // 
             // scatterPlot2
             // 
+            this.scatterPlot2.PointColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.scatterPlot2.PointSize = new System.Drawing.Size(4, 4);
+            this.scatterPlot2.PointStyle = NationalInstruments.UI.PointStyle.EmptyCircle;
             this.scatterPlot2.XAxis = this.xAxis1;
             this.scatterPlot2.YAxis = this.yAxis1;
             // 
@@ -171,18 +187,11 @@
             // 
             this.scatterPlot3.LineColor = System.Drawing.Color.Cyan;
             this.scatterPlot3.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
+            this.scatterPlot3.PointColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.scatterPlot3.PointSize = new System.Drawing.Size(4, 4);
+            this.scatterPlot3.PointStyle = NationalInstruments.UI.PointStyle.EmptyCircle;
             this.scatterPlot3.XAxis = this.xAxis1;
             this.scatterPlot3.YAxis = this.yAxis1;
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(18, 41);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(150, 23);
-            this.btnExport.TabIndex = 4;
-            this.btnExport.Text = "Export Data";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // Form1
             // 
