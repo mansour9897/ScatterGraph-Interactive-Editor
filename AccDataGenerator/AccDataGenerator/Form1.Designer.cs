@@ -212,12 +212,7 @@
             this.scatterGraph1.Annotations.AddRange(new NationalInstruments.UI.XYAnnotation[] {
             this.xyPointAnnotation1});
             this.scatterGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scatterGraph1.InteractionMode = ((NationalInstruments.UI.GraphInteractionModes)((((((((NationalInstruments.UI.GraphInteractionModes.ZoomX | NationalInstruments.UI.GraphInteractionModes.ZoomY) 
-            | NationalInstruments.UI.GraphInteractionModes.ZoomAroundPoint) 
-            | NationalInstruments.UI.GraphInteractionModes.PanX) 
-            | NationalInstruments.UI.GraphInteractionModes.PanY) 
-            | NationalInstruments.UI.GraphInteractionModes.DragCursor) 
-            | NationalInstruments.UI.GraphInteractionModes.DragAnnotationCaption) 
+            this.scatterGraph1.InteractionMode = ((NationalInstruments.UI.GraphInteractionModes)(((NationalInstruments.UI.GraphInteractionModes.DragCursor | NationalInstruments.UI.GraphInteractionModes.DragAnnotationCaption) 
             | NationalInstruments.UI.GraphInteractionModes.EditRange)));
             this.scatterGraph1.Location = new System.Drawing.Point(0, 0);
             this.scatterGraph1.Name = "scatterGraph1";
@@ -317,8 +312,10 @@
             this.ClientSize = new System.Drawing.Size(1008, 601);
             this.Controls.Add(this.scatterGraph1);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
