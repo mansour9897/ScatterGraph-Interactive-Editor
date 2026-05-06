@@ -77,7 +77,7 @@ namespace AccDataGenerator
                 }
 
                 // Split using comma as delimiter (CSV format)
-                var parts = line.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var parts = line.Split(new[] { ',','\t' }, StringSplitOptions.RemoveEmptyEntries);
                 if (parts.Length < 4)
                     continue;
 
@@ -216,23 +216,59 @@ namespace AccDataGenerator
 
             double newY = yMin + yRatio * (yMax - yMin);
 
+            double oldY = 0;
+
             switch (activeAxis)
             {
                 case AxisType.X:
-                    plotXArray[selectedIndex] = newY;
-                    DataList[selectedIndex].X = newY;
+                    oldY = DataList[selectedIndex].X;
                     break;
 
                 case AxisType.Y:
-                    plotYArray[selectedIndex] = newY;
-                    DataList[selectedIndex].Y = newY;
+                    oldY = DataList[selectedIndex].Y;
                     break;
 
                 case AxisType.Z:
-                    plotZArray[selectedIndex] = newY;
-                    DataList[selectedIndex].Z = newY;
+                    oldY = DataList[selectedIndex].Z;
                     break;
             }
+
+            double delta = newY - oldY;
+
+            int width = (int)nudNeighborPoints.Value;   // influence width
+            double sigma = width / 3.0;                 // smaller sigma = sharper peak
+
+            int start = Math.Max(0, selectedIndex - width);
+            int end = Math.Min(DataList.Count - 1, selectedIndex + width);
+
+            for (int i = start; i <= end; i++)
+            {
+                int d = i - selectedIndex;
+
+                double weight = Math.Exp(-(d * d) / (2 * sigma * sigma));
+
+                double change = delta * weight;
+
+                switch (activeAxis)
+                {
+                    case AxisType.X:
+                        DataList[i].X += change;
+                        plotXArray[i] += change;
+                        break;
+
+                    case AxisType.Y:
+                        DataList[i].Y += change;
+                        plotYArray[i] += change;
+                        break;
+
+                    case AxisType.Z:
+                        DataList[i].Z += change;
+                        plotZArray[i] += change;
+                        break;
+                }
+            }
+
+
 
             // update annotation
             double x = DataList[selectedIndex].Time;
