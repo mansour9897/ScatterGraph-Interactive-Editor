@@ -294,6 +294,11 @@
             this.nudNeighborPoints.Name = "nudNeighborPoints";
             this.nudNeighborPoints.Size = new System.Drawing.Size(50, 20);
             this.nudNeighborPoints.TabIndex = 6;
+            this.nudNeighborPoints.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // label4
             // 

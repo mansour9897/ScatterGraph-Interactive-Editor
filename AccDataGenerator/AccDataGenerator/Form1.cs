@@ -9,17 +9,18 @@ using System.Windows.Forms;
 
 namespace AccDataGenerator
 {
-    
 
+    public enum AxisType
+    {
+        None,
+        X,
+        Y,
+        Z
+    }
     public partial class Form1 : Form
     {
-        private enum AxisType
-        {
-            None,
-            X,
-            Y,
-            Z
-        }
+
+        Stack<EditAction> undoStack = new Stack<EditAction>();
 
         private AxisType activeAxis = AxisType.None;
 
@@ -377,6 +378,8 @@ namespace AccDataGenerator
         }
 
         double stepSize = 0.1;
+        int fastJump = 10;   // تعداد نمونه پرش سریع
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (selectedIndex < 0)
@@ -417,6 +420,38 @@ namespace AccDataGenerator
             }
 
             // -----------------------------
+            // پرش سریع در زمان (PageUp / PageDown)
+            // -----------------------------
+            if (e.KeyCode == Keys.PageUp)
+            {
+                if (selectedIndex >= 0)
+                {
+                    selectedIndex -= fastJump;
+                    if (selectedIndex < 0)
+                        selectedIndex = 0;
+
+                    UpdateAnnotation();
+                    scatterGraph1.Refresh();
+                }
+                return;
+            }
+
+            if (e.KeyCode == Keys.PageDown)
+            {
+                if (selectedIndex >= 0)
+                {
+                    selectedIndex += fastJump;
+                    if (selectedIndex >= DataList.Count)
+                        selectedIndex = DataList.Count - 1;
+
+                    UpdateAnnotation();
+                    scatterGraph1.Refresh();
+                }
+                return;
+            }
+
+
+            // -----------------------------
             // حرکت در مقدار (بالا و پایین)
             // -----------------------------
 
@@ -441,6 +476,13 @@ namespace AccDataGenerator
                 UpdatePlot();
                 return;
             }
+
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                UndoLastEdit();
+                return;
+            }
+
         }
 
         void UpdateAnnotation()
@@ -474,6 +516,36 @@ namespace AccDataGenerator
             int start = Math.Max(0, selectedIndex - width);
             int end = Math.Min(DataList.Count - 1, selectedIndex + width);
 
+            double[] oldValues = new double[end - start + 1];
+
+            for (int i = start; i <= end; i++)
+            {
+                switch (activeAxis)
+                {
+                    case AxisType.X:
+                        oldValues[i - start] = DataList[i].X;
+                        break;
+
+                    case AxisType.Y:
+                        oldValues[i - start] = DataList[i].Y;
+                        break;
+
+                    case AxisType.Z:
+                        oldValues[i - start] = DataList[i].Z;
+                        break;
+                }
+            }
+
+            undoStack.Push(new EditAction
+            {
+                StartIndex = start,
+                EndIndex = end,
+                OldValues = oldValues,
+                Axis = activeAxis
+            });
+
+
+
             for (int i = start; i <= end; i++)
             {
                 int d = i - selectedIndex;
@@ -501,6 +573,43 @@ namespace AccDataGenerator
                 }
             }
         }
+
+        void UndoLastEdit()
+        {
+            if (undoStack.Count == 0)
+                return;
+
+            var action = undoStack.Pop();
+
+            int start = action.StartIndex;
+            int end = action.EndIndex;
+
+            for (int i = start; i <= end; i++)
+            {
+                double value = action.OldValues[i - start];
+
+                switch (action.Axis)
+                {
+                    case AxisType.X:
+                        DataList[i].X = value;
+                        plotXArray[i] = value;
+                        break;
+
+                    case AxisType.Y:
+                        DataList[i].Y = value;
+                        plotYArray[i] = value;
+                        break;
+
+                    case AxisType.Z:
+                        DataList[i].Z = value;
+                        plotZArray[i] = value;
+                        break;
+                }
+            }
+
+            UpdatePlot();
+        }
+
 
     }
 }
